@@ -6,14 +6,17 @@ import { AuthContext } from '../context/auth'
 import PostCard from '../containers/Post/PostCard'
 import PostForm from '../containers/Post/PostForm'
 import { FETCH_POSTS_QUERY } from '../util/graphql'
+import { useWindowSize } from '../util/hooks'
 
 function Home () {
   const { user } = useContext(AuthContext)
   const { loading, data } = useQuery(FETCH_POSTS_QUERY)
   const posts = data && data.getPosts
 
+  const size = useWindowSize()
+
   return (
-    <Grid columns={3}>
+    <Grid columns={size.width > 375 ? 3 : 2}>
       <Grid.Row className='page-title'>
         <h1>Recent Posts</h1>
       </Grid.Row>
