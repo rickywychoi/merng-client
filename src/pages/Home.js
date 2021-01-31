@@ -16,7 +16,7 @@ function Home () {
   const size = useWindowSize()
 
   return (
-    <Grid columns={size.width > 375 ? 3 : 2}>
+    <Grid columns={size.width > 375 ? 3 : 1}>
       <Grid.Row className='page-title'>
         <h1>Recent Posts</h1>
       </Grid.Row>
